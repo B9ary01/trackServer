@@ -1,14 +1,14 @@
 const { Pool } = require("pg");
 
 
-const pool = new Pool({
-    connectionString: "postgres://ouywwgecfyrfqb:8c9fd98165cb77f324463708470bec67940add9bb0e334273d3530bdde7831fa@ec2-54-246-185-161.eu-west-1.compute.amazonaws.com:5432/det5drs2ifh548",
-    ssl: {
-    rejectUnauthorized: false
-    }
-   });
 
-//   psql --host=ec2-54-246-185-161.eu-west-1.compute.amazonaws.com --port=5432 --username=ouywwgecfyrfqb --password --dbname=det5drs2ifh548
+const pool = new Pool({
+    user: 'dfcohocmhpzmmf',
+    host: 'ec2-34-252-216-149.eu-west-1.compute.amazonaws.com',
+    database: 'dccrt91mtusg2s',
+    password: 'password',
+    port: 5432,
+  })
 
 
    pool.query(`SELECT * FROM users;`, (err, res) => {
@@ -19,6 +19,7 @@ const pool = new Pool({
     else{
         console.log(res.rows);
     }
+    pool.end()
 });
 
 pool.query(`INSERT INTO users(name,email,password)VALUES($1,$2,$3)`, ['name','email','password'], (err, res) => {

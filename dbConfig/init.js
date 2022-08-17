@@ -29,6 +29,4 @@ pool.query(`INSERT INTO users(name,email,password)VALUES($1,$2,$3)`, ['name','em
     }
 });
 
-
-
 module.exports = pool;

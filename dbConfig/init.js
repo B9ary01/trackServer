@@ -8,6 +8,7 @@ const pool = new Pool({
     }
    });
 
+//   psql --host=ec2-54-246-185-161.eu-west-1.compute.amazonaws.com --port=5432 --username=ouywwgecfyrfqb --password --dbname=det5drs2ifh548
 
 
    pool.query(`SELECT * FROM users;`, (err, res) => {
